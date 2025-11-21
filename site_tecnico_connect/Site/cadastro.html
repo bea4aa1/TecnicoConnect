@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Técnico Connect</title>
+    <link rel="stylesheet" href="home.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        .secao-cadastro {
+            padding: 80px 20px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--cor-fundo-claro); 
+        }
+        .cadastro-container {
+            max-width: 600px;
+            width: 100%;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .cadastro-container h1 {
+            color: var(--cor-base-escura);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .cadastro-container p {
+            color: var(--cor-cinza-medio);
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .opcoes-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-opcao {
+            flex: 1;
+            min-width: 200px;
+            padding: 25px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+        .btn-opcao i {
+            display: block;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+       
+        .btn-candidato {
+            background-color: var(--cor-acento-lavanda);
+            color: var(--cor-base-escura);
+        }
+        .btn-candidato:hover {
+            background-color: var(--cor-destaque);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-empresa {
+            background-color: var(--cor-base-escura);
+            color: white;
+            border-color: var(--cor-base-escura);
+        }
+        .btn-empresa:hover {
+            background-color: #5a5a5a;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container header-content">
+        <a href="index.html" class="site-logo-link">
+            <img src="imagens/logo1.png" alt="Logo do site" class="site-logo">
+            <span class="site-title">Técnico Connect</span>
+        </a>
+        <a href="login.html" class="btn-outline-primary btn">
+             <i class="fas fa-sign-in-alt"></i> Voltar para Login
+        </a>
+    </div>
+</header>
+<section class="secao-cadastro">
+    <div class="cadastro-container">
+        <h1>Selecione</h1>
+        <p>Escolha a opção que mais se encaixa com seu perfil:</p>
+        
+        <div class="opcoes-grid">
+            
+            <a href="cadastroc.html" class="btn-opcao btn-candidato">
+                <i class="fas fa-briefcase"></i>
+                Candidato
+            </a>
+            
+            <a href="cadastroe.html" class="btn-opcao btn-empresa">
+                <i class="fas fa-building"></i>
+                Empresa
+            </a>
+            
+        </div>
+        
+    </div>
+</section>
+
+
+<footer class="main-footer">
+    <div class="container copyright" style="border:none; padding: 10px 0;">
+        &copy; 2025 Técnico Connect.
+    </div>
+</footer>
+
+</body>
+</html>

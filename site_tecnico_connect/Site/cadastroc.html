@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Candidato - Técnico Connect</title>
+    <link rel="stylesheet" href="home.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        .secao-cadastro-form {
+            padding: 40px 20px;
+            min-height: 85vh;
+            display: flex;
+            align-items: flex-start; 
+            justify-content: center;
+            background-color: #f8f9fa; /* Substituído --cor-fundo-claro */
+        }
+        .form-container {
+            max-width: 700px;
+            width: 100%;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h1 {
+            color: #343a40; /* Substituído --cor-base-escura */
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #007bff; /* Substituído --cor-acento-lavanda */
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #343a40; /* Substituído --cor-base-escura */
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group input[type="file"],
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #0056b3; /* Substituído --cor-destaque */
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box; 
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff; /* Substituído --cor-acento-lavanda */
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: 700;
+            background-color: #007bff; /* Substituído --cor-acento-lavanda */
+            color: #ffffff; /* Ajustado para branco para contraste em botão azul */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3; /* Substituído --cor-destaque */
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container header-content">
+        <a href="index.html" class="site-logo-link">
+            <img src="imagens/logo1.png" alt="Logo do site" class="site-logo">
+            <span class="site-title">Técnico Connect</span>
+        </a>
+        <a href="cadastro.html" class="btn-outline-primary btn">
+             <i class="fas fa-arrow-left"></i> Voltar
+        </a>
+    </div>
+</header>
+<section class="secao-cadastro-form">
+    <div class="form-container">
+        <h1><i class="fas fa-user-plus"></i> Cadastro de Candidato</h1>
+        
+        <form action="processar_cadastro_candidato.php" method="POST" enctype="multipart/form-data">
+            
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Informações Profissionais</legend>
+                <div class="form-group">
+                    <label for="area">Área de Interesse Principal</label>
+                    <select id="area" name="area" required>
+                        <option value="">Selecione uma Área</option>
+                        <option value="desenvolvimento">Desenvolvimento de Software</option>
+                        <option value="redes">Redes e Infraestrutura</option>
+                        <option value="suporte">Suporte Técnico</option>
+                        <option value="dados">Análise de Dados</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="nivel">Nível de Experiência</label>
+                    <select id="nivel" name="nivel" required>
+                        <option value="">Selecione o Nível</option>
+                        <option value="junior">Júnior</option>
+                        <option value="pleno">Pleno</option>
+                        <option value="senior">Sênior</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="curriculo">Upload do Currículo (PDF ou DOCX)</label>
+                    <input type="file" id="curriculo" name="curriculo" accept=".pdf,.docx" required>
+                </div>
+            </fieldset>
+            
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-check"></i> Finalizar Cadastro
+            </button>
+            
+        </form>
+        
+        <p style="margin-top: 20px; font-size: 0.9em; color: #6c757d;">
+            Já tem uma conta? <a href="login.html" style="color: #343a40; font-weight: 600;">Faça Login</a>.
+        </p>
+        
+    </div>
+</section>
+
+
+<footer class="main-footer">
+    <div class="container copyright" style="border:none; padding: 10px 0;">
+        &copy; 2025 Técnico Connect.
+    </div>
+</footer>
+
+</body>
+</html>
