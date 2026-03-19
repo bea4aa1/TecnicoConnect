@@ -1,0 +1,109 @@
+:root {
+    --primary: #8A05BE;
+    --primary-light: #ab47bc;
+    --bg: #fdfbff;
+    --text: #1d1d1f;
+    --white: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --success: #00f593;
+    --error: #ff4d4d;
+}
+
+[data-theme="dark"] {
+    --bg: #0f0f0f; --text: #ffffff; --white: #1a1a1a; --card-bg: rgba(40, 40, 40, 0.9);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.3s; }
+body { background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+
+
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 8%; background: var(--card-bg); backdrop-filter: blur(15px);
+    position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(138, 5, 190, 0.1);
+}
+.logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.85rem; }
+
+
+.btn-roxo { background: var(--primary); color: white !important; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; display: inline-block; text-align: center; }
+.btn-login-nav { background: rgba(138, 5, 190, 0.1); color: var(--primary) !important; padding: 8px 20px; border-radius: 12px; border: 1px solid var(--primary); }
+
+
+.section { padding: 60px 8%; max-width: 1200px; margin: 0 auto; }
+.hero { padding: 100px 8%; text-align: center; }
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; }
+.hero span { color: var(--primary); }
+
+.info-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 35px rgba(138, 5, 190, 0.1); 
+}
+
+.option-btn { display: block; width: 100%; padding: 22px; margin-bottom: 15px; background: var(--bg); border: 2px solid #eee; border-radius: 18px; text-align: left; cursor: pointer; color: var(--text); font-weight: 600; font-size: 1rem; }
+.correct { background: var(--success) !important; color: #166534 !important; border-color: #166534 !important; }
+.wrong { background: var(--error) !important; color: white !important; border-color: #991b1b !important; }
+
+.auth-container { max-width: 450px; padding: 50px; background: var(--white); border-radius: 40px; border: 1px solid rgba(138, 5, 190, 0.1); text-align: center; margin: 80px auto; box-shadow: 0 30px 60px rgba(0,0,0,0.08); }
+.auth-input { width: 100%; padding: 18px; margin: 12px 0; border-radius: 15px; border: 1px solid #ddd; background: var(--bg); color: var(--text); font-size: 1rem; }
+
+.dash-card { background: var(--white); padding: 30px; border-radius: 25px; border-left: 10px solid var(--primary); display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.04); }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: 1s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.badge-vaga {
+    background: #000;
+    color: var(--secondary);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { 
+    background: var(--white); 
+    margin-bottom: 10px; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.faq-question { padding: 20px; font-weight: 700; display: flex; justify-content: space-between; }
+.faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s; opacity: 0; }
+.faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 100px; opacity: 1; }
+
+.footer-site { background: #111; color: white; padding: 60px 0; margin-top: 80px; }
+.footer-site a { color: #888; text-decoration: none; font-size: 0.9rem; }
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+    color: var(--primary);
+    transform: translateX(-5px);
+}
