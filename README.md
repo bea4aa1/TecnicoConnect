@@ -1,7 +1,8 @@
 <h1 align="center"> Trabalho de conclusão de curso - Técnico Connect </h1>
 
 **Integrantes**
-Anna Beatriz Rosseto 
+
+Annna Beatriz Rosseto 
 
 Beatriz Santos 
 
