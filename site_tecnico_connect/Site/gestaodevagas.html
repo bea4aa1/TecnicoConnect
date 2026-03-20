@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnico Connect - Cadastro de Nova Vaga</title>
+    
+    <link rel="icon" type="image/png" href="Tecnico conect.png"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body> 
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo-link">
+                    <img src="Tecnico conect.png" alt="Técnico Connect Logo" class="site-logo">
+                </a>
+                <button class="toggle-btn" id="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-briefcase"></i> Gestão de Vagas</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Candidatos</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Relatórios</a></li>
+                    <li><a href="#"><i class="fas fa-layer-group"></i> Minha Conta</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="top-header">
+                <button class="toggle-btn" id="open-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Gestão de Vagas</h1>
+                <div class="user-info">
+                    <span class="user-name">Olá, Empresa de RH!</span>
+                    <a href="#" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </div>
+            </header>
+
+            <section class="content-area">
+                
+                <h2 class="section-title"><i class="fas fa-plus-circle"></i> Cadastrar Nova Vaga</h2>
+                
+                <div class="form-card">
+                    <form action="processar_cadastro_vaga.php" method="POST">
+                        
+                        <div class="form-group">
+                            <label for="titulo">Título da Vaga *</label>
+                            <input type="text" id="titulo" name="titulo" required placeholder="Ex: Técnico em Eletrotécnica Pleno">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="area">Área/Setor *</label>
+                            <select id="area" name="area" required>
+                                <option value="" disabled selected>Selecione a área</option>
+                                <option value="tecnico_eletronica">Técnico em Eletrônica</option>
+                                <option value="tecnico_mecanica">Técnico em Mecânica</option>
+                                <option value="tecnico_ti">Técnico em T.I.</option>
+                                <option value="administrativo">Administrativo</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nivel">Nível da Posição *</label>
+                            <div class="radio-group">
+                                <input type="radio" id="junior" name="nivel" value="junior" required>
+                                <label for="junior">Júnior</label>
+                                <input type="radio" id="pleno" name="nivel" value="pleno">
+                                <label for="pleno">Pleno</label>
+                                <input type="radio" id="senior" name="nivel" value="senior">
+                                <label for="senior">Sênior</label>
+                                <input type="radio" id="estagio" name="nivel" value="estagio">
+                                <label for="estagio">Estágio</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label for="localizacao">Localização *</label>
+                                <input type="text" id="localizacao" name="localizacao" required placeholder="Cidade/Estado ou Remoto">
+                            </div>
+
+                            <div class="form-group half-width">
+                                <label for="salario">Faixa Salarial (R$)</label>
+                                <input type="number" id="salario" name="salario" placeholder="Ex: 3500.00" min="0" step="0.01">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição Detalhada da Vaga *</label>
+                            <textarea id="descricao" name="descricao" rows="6" required placeholder="Descreva as responsabilidades, requisitos e o que a empresa oferece."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary"><i class="fas fa-upload"></i> Publicar Vaga</button>
+                            <button type="reset" class="btn-secondary">Limpar Formulário</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
