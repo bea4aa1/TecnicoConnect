@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Técnico | Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+    <a href="index.html" class="logo" style="font-weight: 750;">Técnico Connect</a>
+    <div class="nav-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="vagas.html">Vagas</a>
+        <a href="guia-curriculo.html">Currículo</a>
+        <a href="index.html" class="btn-login-nav">Sair do Quiz</a>
+    </div>
+</nav>
+
+<header class="section" style="text-align: center; padding: 60px 8% 20px 8%;">
+    <div class="reveal active">
+        <span class="tag-passo" style="background: var(--primary); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;">AVALIAÇÃO</span>
+       
+</header>
+
+<script>
+   
+    function mostrarResultado(score) {
+        const box = document.getElementById('quiz-box');
+        box.innerHTML = `
+            <h2>Teste Concluído!</h2>
+            <p>Seu Score Técnico é: <strong>${score} / 5</strong></p>
+            <div style="margin-top: 25px; display: flex; flex-direction: column; gap: 10px;">
+                <button onclick="window.location.href='dashboard.html'" class="btn-roxo">Ver meu Match</button>
+                <button onclick="window.location.href='index.html'" class="btn-outline" style="border:none; background:none; cursor:pointer; color: #666;">Voltar para a Página Inicial</button>
+            </div>
+        `;
+    }
+</script>
+
+<main class="section">
+    <div id="quiz-container" style="max-width: 800px; margin: 0 auto;">
+        <div id="quiz-content" class="reveal active">
+            <h4 style="color:var(--primary); font-weight:800; margin-bottom:10px;">TESTE SEU NÍVEL</h4>
+            <h2 id="question-text" style="font-size: 2rem; margin-bottom:40px;">Carregando...</h2>
+            <div id="options-container"></div>
+        </div>
+        <div id="result-container" style="display:none; text-align:center;" class="reveal active">
+            <h1 style="font-size: 5rem; margin-bottom:20px;">🏆</h1>
+            <h2>Quiz Finalizado!</h2>
+            <p id="result-text" style="font-size: 1.5rem; margin: 30px 0;"></p>
+            <p>Faça login para salvar este resultado no seu painel.</p><br>
+            <a href="login.html" class="btn-roxo">Salvar no Aplicativo</a>
+        </div>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

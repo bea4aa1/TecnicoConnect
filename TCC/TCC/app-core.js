@@ -1,3 +1,4 @@
+// BANCO DE DADOS LOCAL (Simulado)
 const errorsAcademy = [
     { code: "F001", machine: "Inversor Weg", desc: "Sobretensão no Link DC", fix: "Verificar frenagem e rede." },
     { code: "E704", machine: "Robô Kuka", desc: "Erro de Comunicação Fieldbus", fix: "Checar cabos Profinet." },
@@ -15,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = localStorage.getItem('user_email') || 'visitante@tech.com';
     const score = localStorage.getItem('user_score') || 0;
 
-
+    // Configura Perfil
     document.getElementById('profile-name').innerText = email.split('@')[0].toUpperCase();
     document.getElementById('profile-role').innerText = type === 'tech' ? 'TÉCNICO ESPECIALISTA' : 'RECRUTADOR INDUSTRIAL';
 
-
+    // Monta Menu e Carrega Visão
     const menu = document.getElementById('dynamic-menu');
     if(type === 'tech') {
         menu.innerHTML = `
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Funções de Interface
 function switchTab(tabId) {
     document.querySelectorAll('.view-section').forEach(v => v.style.display = 'none');
     document.getElementById('tab-' + tabId).style.display = 'block';
