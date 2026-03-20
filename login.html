@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito | Técnico Connect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8A05BE;
+            --company-color: #1c1c1e;
+        }
+
+        body {
+            background: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.5s ease;
+        }
+
+        /* Fundo muda conforme a seleção */
+        body.mode-company { background: #e2e8f0; }
+
+        .login-card {
+            background: white;
+            padding: 45px;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .brand-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle { color: #666; margin-bottom: 35px; font-size: 0.9rem; }
+
+        .type-selector {
+            display: flex;
+            background: #f1f1f1;
+            padding: 6px;
+            border-radius: 18px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .type-btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 700;
+            z-index: 2;
+            background: transparent;
+            color: #777;
+            transition: 0.3s;
+        }
+
+        .type-btn.active { color: white; }
+
+       
+        .selector-bg {
+            position: absolute;
+            width: calc(50% - 6px);
+            height: calc(100% - 12px);
+            background: var(--primary);
+            border-radius: 14px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 16px;
+            background: #f8f9fa;
+            border: 2px solid #f1f1f1;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .input-field:focus { border-color: var(--primary); background: white; }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(138, 5, 190, 0.2);
+        }
+
+        .btn-submit:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+       
+        .company-active .selector-bg { transform: translateX(100%); background: var(--company-color); }
+        .company-active .btn-submit { background: var(--company-color); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .company-active .brand-logo { color: var(--company-color); }
+    </style>
+</head>
+<body id="mainBody">
+
+<div class="login-card" id="card">
+    <div class="brand-logo" id="logoText">Técnico Connect</div>
+    <p class="subtitle" id="welcomeText">Área do Técnico Especialista</p>
+
+    <div class="type-selector">
+        <div class="selector-bg"></div>
+        <button class="type-btn active" id="tabTech" onclick="toggleMode('tech')">Técnico</button>
+        <button class="type-btn" id="tabComp" onclick="toggleMode('company')">Empresa</button>
+    </div>
+
+    <input type="email" id="email" class="input-field" placeholder="E-mail profissional">
+    <input type="password" id="pass" class="input-field" placeholder="Sua senha">
+
+    <button class="btn-submit" onclick="login()">Acessar Painel</button>
+
+    <a href="index.html" style="display:block; margin-top:25px; color:#aaa; text-decoration:none; font-size:0.8rem; font-weight:600;">← Voltar ao Início</a>
+</div>
+
+<script>
+    let currentMode = 'tech';
+
+    function toggleMode(mode) {
+        currentMode = mode;
+        const body = document.getElementById('mainBody');
+        const card = document.getElementById('card');
+        const welcome = document.getElementById('welcomeText');
+        const btnTech = document.getElementById('tabTech');
+        const btnComp = document.getElementById('tabComp');
+
+        if (mode === 'company') {
+            body.classList.add('mode-company');
+            card.classList.add('company-active');
+            welcome.innerText = "Painel de Recrutamento & Seleção";
+            btnComp.classList.add('active');
+            btnTech.classList.remove('active');
+        } else {
+            body.classList.remove('mode-company');
+            card.classList.remove('company-active');
+            welcome.innerText = "Área do Técnico Especialista";
+            btnTech.classList.add('active');
+            btnComp.classList.remove('active');
+        }
+    }
+
+    function login() {
+        const email = document.getElementById('email').value;
+        if(email) {
+            localStorage.setItem('user_type', currentMode);
+            localStorage.setItem('user_email', email);
+            window.location.href = 'dashboard.html';
+        } else {
+            alert("Preencha os dados de acesso!");
+        }
+    }
+</script>
+
+</body>
+</html>

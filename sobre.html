@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Técnico Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> </head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Técnico Connect</a>
+        <div class="nav-links">
+            <a href="index.html">Início</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="curriculo.html">Currículo</a>
+            <a href="quiz.html" class="btn-roxo" style="padding: 8px 20px; font-size: 0.85rem;">Fazer Quiz</a>
+            <a href="login.html" class="btn-login-nav">Entrar</a>
+        </div>
+    </nav>
+
+    <header class="hero reveal active">
+        <span style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px;">Tecnologia & Carreira</span>
+        <h1>Nossa missão é <span>conectar talentos</span> técnicos ao futuro.</h1>
+        <p style="max-width: 700px; margin: 20px auto; color: var(--text); opacity: 0.8;">
+            A Técnico Connect nasceu para ser a ponte definitiva entre profissionais de automação, elétrica e manutenção e as maiores indústrias do mercado.
+        </p>
+    </header>
+
+    <section class="section">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            
+            <div class="dash-card info-box">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Quem Somos</h3>
+                    <p>Somos uma plataforma focada em especialistas. Entendemos que o chão de fábrica e a engenharia precisam de um olhar dedicado.</p>
+                </div>
+            </div>
+
+            <div class="dash-card info-box" style="border-left-color: var(--success);">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">O que fazemos</h3>
+                    <p>Facilitamos o "match" entre o currículo técnico e a vaga ideal através de inteligência de dados e testes de perfil.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section reveal active" style="text-align: center; background: var(--white); border-radius: 40px; margin-bottom: 80px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">Pronto para dar o próximo passo?</h2>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="cadastro.html" class="btn-roxo">Começar Agora</a>
+            <a href="vagas.html" class="btn-outline">Ver Médias Salariais</a>
+        </div>
+    </section>
+
+    <footer class="footer-site">
+        <div class="section" style="padding: 0; text-align: center;">
+            <p>&copy; 2026 Técnico Connect. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+     
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 100) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

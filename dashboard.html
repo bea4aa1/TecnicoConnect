@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma Técnico Connect PRO 2026</title>
+    <link rel="stylesheet" href="styledash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <aside class="app-sidebar">
+        <div class="brand">Técnico Connect</div>
+        <nav id="dynamic-menu"></nav>
+        
+        <div style="margin-top: auto; padding: 20px; background: rgba(0,0,0,0.03); border-radius: 20px;">
+            <p id="profile-name" style="font-weight: 800;">USUÁRIO</p>
+            <p id="profile-role" style="font-size: 0.7rem; opacity: 0.6;">TÉCNICO</p>
+            <button onclick="logout()" style="color: var(--danger); border:none; background:none; font-weight:bold; cursor:pointer; margin-top:10px;">SAIR</button>
+        </div>
+    </aside>
+
+    <main class="app-content">
+        <header class="header-app">
+            <h1 id="page-title">Painel de Controle</h1>
+            <div id="header-action"></div>
+        </header>
+
+        <div id="tab-tech" class="view-section" style="display:none;">
+            <div class="match-banner">
+                <div>
+                    <span class="badge-match">98% MATCH DISPONÍVEL</span>
+                    <h2 style="margin: 15px 0;">Manutenção Especializada - AMBEV</h2>
+                    <p>Seu perfil em Automação e NR10 é exatamente o que eles buscam.</p>
+                    <button class="btn-prime" style="background:white; color:var(--primary); margin-top:20px;" onclick="switchTab('chat')">Ver Vaga e Chat</button>
+                </div>
+                <div style="font-size: 5rem; opacity: 0.3;">🚀</div>
+            </div>
+
+            <div class="grid-main">
+                <div class="card">
+                    <h3>Minhas Competências</h3>
+                    <div style="margin-top:15px;">
+                        <p>Elétrica Industrial <span style="float:right;">90%</span></p>
+                        <div class="radar-bar"><div class="radar-fill" style="width: 90%;"></div></div>
+                        <p style="margin-top:10px;">CLP & IHM <span style="float:right;">75%</span></p>
+                        <div class="radar-bar"><div class="radar-fill" style="width: 75%;"></div></div>
+                        <p style="margin-top:10px;">Pneumática <span style="float:right;">60%</span></p>
+                        <div class="radar-bar"><div class="radar-fill" style="width: 60%;"></div></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Score Connect</h3>
+                    <h2 id="final-score" style="font-size: 4rem; color: var(--primary);">0/5</h2>
+                    <p>Baseado no seu último Quiz Técnico.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-company" class="view-section" style="display:none;">
+            <div class="card">
+                <h2>Candidatos Disponíveis (Ranking)</h2>
+                <div id="talent-results" style="margin-top:20px;"></div>
+            </div>
+        </div>
+
+        <div id="tab-academy" class="view-section" style="display:none;">
+            <div class="card">
+                <h2>Central de Falhas (Troubleshooting)</h2>
+                <p>Consulte códigos de erro de máquinas em tempo real.</p>
+                <div style="margin-top:20px;" id="academy-list"></div>
+            </div>
+        </div>
+
+        <div id="tab-chat" class="view-section" style="display:none;">
+            <div class="chat-container">
+                <div style="padding:20px; border-bottom:1px solid #eee; font-weight:800;">💬 Chat com Recrutamento</div>
+                <div class="chat-messages" id="chat-box">
+                    <div class="msg received">Olá! Analisamos seu score no Connect. Você tem as certificações NR10 e NR12 em dia?</div>
+                </div>
+                <div style="padding:20px; display:flex; gap:10px;">
+                    <input type="text" id="msg-input" placeholder="Responder..." style="flex:1; padding:15px; border-radius:12px; border:1px solid #ddd;">
+                    <button class="btn-prime" onclick="sendMsg()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app-core.js"></script>
+</body>
+</html>
