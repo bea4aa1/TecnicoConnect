@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Técnico Connect | O Futuro da Indústria</title>
+    <title>Técnico Connect</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@
         <a href="sobre.html">Sobre</a>
         <a href="vagas.html">Vagas</a>
         <a href="guia-curriculo.html">Currículo</a>
-        <a href="quiz.html" class="btn-roxo" style="padding: 8px 20px;">Fazer Quiz</a>
+        <a href="quiz.html" class="btn-roxo btn-padding-quiz">Fazer Quiz</a>
         <a href="login.html" class="btn-login-nav">Entrar</a>
     </div>
 </nav>
@@ -25,7 +25,7 @@
         <span class="tag-passo">TECNOLOGIA & CARREIRA</span>
         <h1>Conectando talentos às <span>maiores indústrias.</span></h1>
         <p>A plataforma definitiva para técnicos de automação, elétrica e manutenção. Encontre seu match perfeito em segundos.</p>
-        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+        <div class="hero-buttons">
             <a href="login.html" class="btn-roxo">Começar Agora</a>
             <a href="#simulador" class="btn-outline">Ver Médias Salariais</a>
         </div>
@@ -38,50 +38,46 @@
         <p>Ajuste sua experiência e veja a média do mercado atualizada:</p>
         <input type="range" id="expRange" min="1" max="3" step="1" value="1">
         <h3 id="expLabel">Nível: Iniciante / Auxiliar</h3>
-        <h2 id="valorHora" style="font-size: 4.5rem; margin: 15px 0; font-weight: 900;">R$ 28 - 35/h</h2>
-        <p id="descNivel" style="opacity: 0.9;">Foco em suporte básico e preventivas.</p>
+        <h2 id="valorHora" class="valor-hora-text">R$ 28 - 35/h</h2>
+        <p id="descNivel" class="desc-nivel-text">Foco em suporte básico e preventivas.</p>
     </div>
 </section>
 
-<section id="tecnologias" class="section" style="background: #fff;">
-    <div style="text-align: center; margin-bottom: 50px;">
+<section id="tecnologias" class="section section-tecnologias">
+    <div class="header-tecnologias">
         <span class="tag-passo">CONHECIMENTO</span>
-        <h2 style="margin-top:10px;">Domine as tecnologias do mercado</h2>
-        <p>Nossa plataforma oferece suporte e avaliação para os principais players da indústria.</p>
+        <h2 class="titulo-tecnologias">Domine as tecnologias do mercado</h2>
+        <p class="subtitulo-tecnologias">Nossa plataforma oferece suporte e avaliação para os principais players da indústria.</p>
     </div>
 
-    <div class="grid-info">
-        <div class="info-box reveal" style="border-top: 5px solid var(--primary);">
-            <h3>💻 Desenvolvimento Full Stack</h3>
-            <p>• Crie interfaces fluidas e apps de alta performance com Flutter e tecnologias nativas.</p>
-            <p>• Encontre especialistas em arquitetura mobile focados em experiência do usuário e escalabilidade.</p>
-           
+    <div class="grid-info container-info-boxes">
+        <div class="info-box reveal box-estilizada">
+            <h3>Full Stack</h3>
+            <p>Interfaces fluidas com Flutter e tecnologias nativas.</p>
         </div>
 
-        <div class="info-box reveal" style="border-top: 5px solid var(--primary);">
-            <h3>☁️ Cloud & DevOps</h3>
-                 <p>• Aprenda a implantar soluções em nuvem e gerenciar redes com foco em Cybersecurity </p>
-                 <p>• Garanta a estabilidade e a segurança da sua operação com profissionais de DevOps e Redes.</p>
+        <div class="info-box reveal box-estilizada">
+            <h3>Cloud & DevOps</h3>
+            <p>Implante soluções em nuvem e gerencie redes com foco em Cybersecurity.</p>
         </div>
 
-        <div class="info-box reveal" style="border-top: 5px solid var(--primary);">
-            <h3>📱 Mobile Architecture</h3>
-             <p>• Crie experiências nativas e híbridas de alta performance para os ecossistemas iOS e Android.</p>
-             <p>• Encontre talentos prontos para desenvolver e escalar aplicativos com interfaces intuitivas e código limpo.</p>
-            </div>
+        <div class="info-box reveal box-estilizada">
+            <h3>Mobile</h3>
+            <p>Arquitetura para ecossistemas iOS e Android com código limpo.</p>
+        </div>
     </div>
 
-    <div style="margin-top: 60px; display: flex; justify-content: space-around; align-items: center; opacity: 0.4; filter: grayscale(100%); flex-wrap: wrap; gap: 20px;">
-        <strong style="font-size: 1.2rem;">SIEMENS</strong>
-        <strong style="font-size: 1.2rem;">WEG</strong>
-        <strong style="font-size: 1.2rem;">ABB</strong>
-        <strong style="font-size: 1.2rem;">FANUC</strong>
-        <strong style="font-size: 1.2rem;">SCHNEIDER</strong>
+    <div class="logos-parceiros">
+        <strong class="parceiro-nome">SIEMENS</strong>
+        <strong class="parceiro-nome">WEG</strong>
+        <strong class="parceiro-nome">ABB</strong>
+        <strong class="parceiro-nome">FANUC</strong>
+        <strong class="parceiro-nome">SCHNEIDER</strong>
     </div>
 </section>
 
 <section class="section">
-    <h2 style="text-align: center; margin-bottom: 40px;">Dúvidas Frequentes</h2>
+    <h2 class="faq-titulo">Dúvidas Frequentes</h2>
     <div class="faq-container">
         <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">Como funciona o Match? <span>+</span></div>
@@ -107,8 +103,8 @@
         </div>
         <div>
             <h4>Newsletter</h4>
-            <input type="email" placeholder="Seu e-mail técnico" class="auth-input" style="padding:10px;">
-            <button class="btn-roxo" style="padding:10px 20px; width:100%; margin-top:10px;">Assinar</button>
+            <input type="email" placeholder="Seu e-mail técnico" class="auth-input newsletter-input">
+            <button class="btn-roxo newsletter-btn">Assinar</button>
         </div>
     </div>
 </footer>
