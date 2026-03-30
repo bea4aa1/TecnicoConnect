@@ -2,20 +2,15 @@
     <div class="brand">Técnico Connect</div>
     
     <nav id="dynamic-menu">
-        <?php 
-            // Criamos uma variável para saber qual página está ativa sem dar erro de "Undefined"
-            $currentPage = isset($_GET['page']) ? $_GET['page'] : 'home'; 
-        ?>
-
-        <a href="?page=home" class="nav-item <?php echo ($currentPage == 'home') ? 'active' : ''; ?>">
+        <a href="?page=home" class="nav-item <?php echo ($page == 'home') ? 'active' : ''; ?>">
             <span>🏠</span> Painel Principal
         </a>
         
-        <a href="?page=vagas" class="nav-item <?php echo ($currentPage == 'vagas') ? 'active' : ''; ?>">
+        <a href="?page=vagas" class="nav-item <?php echo ($page == 'vagas') ? 'active' : ''; ?>">
             <span>💼</span> Minhas Vagas
         </a>
         
-        <a href="?page=academy" class="nav-item <?php echo ($currentPage == 'academy') ? 'active' : ''; ?>">
+        <a href="?page=academy" class="nav-item <?php echo ($page == 'academy') ? 'active' : ''; ?>">
             <span>🛠️</span> Central de Falhas
         </a>
     </nav>

@@ -4,6 +4,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
 $nomeUsuario = isset($_SESSION['user_nome']) ? $_SESSION['user_nome'] : "Usuário";
 $tipoUsuario = isset($_SESSION['user_type']) ? $_SESSION['user_type'] : "tech";
 $scoreUsuario = isset($_SESSION['user_score']) ? $_SESSION['user_score'] : 0; 

@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Se o usuário já estiver logado, manda direto para o dashboard
 if (isset($_SESSION['user_id'])) {
     header("Location: dashboard.php");
     exit();
@@ -12,81 +11,9 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso Restrito | Técnico Connect</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="loginstyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #8A05BE;
-            --company-color: #1c1c1e;
-        }
-
-        body {
-            background: #f4f7fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            transition: background 0.5s ease;
-            margin: 0;
-        }
-
-        body.mode-company { background: #e2e8f0; }
-
-        .login-card {
-            background: white;
-            padding: 45px;
-            border-radius: 32px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 420px;
-            text-align: center;
-        }
-
-        .tabs-auth {
-            display: flex;
-            background: #f1f1f1;
-            padding: 5px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
-
-        .tab-btn.active {
-            background: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .auth-input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            font-size: 1rem;
-        }
-
-        .btn-entrar {
-            width: 100%;
-            padding: 15px;
-            border-radius: 12px;
-            border: none;
-            background: var(--primary);
-            color: white;
-            font-weight: 800;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-    </style>
+    
 </head>
 <body id="mainBody">
 
