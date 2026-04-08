@@ -11,7 +11,7 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso Restrito | Técnico Connect</title>
-    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="stylesheet" href="styles/loginstyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
 </head>
@@ -48,7 +48,7 @@ if (isset($_SESSION['user_id'])) {
         const btnComp = document.getElementById('tabComp');
         const typeInput = document.getElementById('user_type_input');
 
-        typeInput.value = mode; // Atualiza o valor para o PHP saber quem está logando
+        typeInput.value = mode; 
 
         if (mode === 'company') {
             body.classList.add('mode-company');
