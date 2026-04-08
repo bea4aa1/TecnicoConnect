@@ -15,7 +15,7 @@ $scoreUsuario = isset($_SESSION['user_score']) ? $_SESSION['user_score'] : 0;
 <head>
     <meta charset="UTF-8">
     <title>Painel | Técnico Connect</title>
-    <link rel="stylesheet" href="styledash.css"> 
+    <link rel="stylesheet" href="styles/styledash.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body style="display: flex; height: 100vh; overflow: hidden; background: #f0f2f5;">
