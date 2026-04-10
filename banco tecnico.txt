@@ -11,15 +11,7 @@ CREATE TABLE usuarios (
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Inserindo um usuário de teste (Senha: 123456)
 INSERT INTO usuarios (nome, email, senha, tipo, score) 
 VALUES ('João Técnico', 'teste@tech.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'tech', 850);
-
--- Deleta se já existir para não dar erro de duplicado
-DELETE FROM usuarios WHERE email = 'teste@tech.com';
-
--- Insere o usuário com o hash da senha '123456'
-INSERT INTO usuarios (nome, email, senha, tipo, score) 
-VALUES ('Joao Tecnico', 'teste@tech.com', '$2y$10$89EOnN49S8EaVz1NqhH9p.3U1W8s1v5W6l.6QzG/Z9S1K7p6Q5K5G', 'tech', 850);
 
 select * from usuarios;

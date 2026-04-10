@@ -15,6 +15,7 @@
         <a href="vagas.php">Vagas</a>
         <a href="guia-curriculo.php">Currículo</a>
         <a href="quiz.php" class="btn-roxo btn-padding-quiz">Fazer Quiz</a>
-        <a href="login.php" class="btn-login-nav">Entrar</a>
+        <a href="login.php" class="btn-logcad-nav">Entrar</a>
+        <a href="cadastro.php" class="btn-logcad-nav">Cadastrar</a>
     </div>
 </nav>
