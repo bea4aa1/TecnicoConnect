@@ -4,6 +4,11 @@ if (isset($_SESSION['user_id'])) {
     header("Location: dashboard.php");
     exit();
 }
+
+// Exibir mensagens de sessão
+$erro = $_SESSION['erro'] ?? null;
+$sucesso = $_SESSION['sucesso'] ?? null;
+unset($_SESSION['erro'], $_SESSION['sucesso']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,127 +24,107 @@ if (isset($_SESSION['user_id'])) {
 
 <div class="login-card" id="card">
     <div class="tabs-auth">
-        <button class="tab-btn active" id="tabTech" onclick="toggleMode('tech')">SOU TÉCNICO</button>
-        <button class="tab-btn" id="tabComp" onclick="toggleMode('company')">SOU EMPRESA</button>
+        <button class="tab-btn active" id="tabCliente" onclick="toggleMode('cliente')">SOU CLIENTE</button>
+        <button class="tab-btn" id="tabEmpresa" onclick="toggleMode('empresa')">SOU EMPRESA</button>
     </div>
 
-    <h2 id="welcomeText" style="margin-bottom: 10px;">Cadastro de Técnico Especialista</h2>
+    <h2 id="welcomeText" style="margin-bottom: 10px;">Cadastro de Cliente</h2>
     <p style="color: #666; margin-bottom: 30px; font-size: 0.9rem;">Preencha os dados para criar sua conta</p>
 
-    <!-- FORMULÁRIO TÉCNICO -->
-    <form action="processar_cadastro.php" method="POST" id="formTech" class="form-auth">
-        <input type="hidden" name="tipo" value="tech">
+    <?php if ($erro): ?>
+        <div class="error-message" style="margin-bottom: 20px; padding: 12px; background: #fde6e6; border-left: 4px solid #e74c3c; border-radius: 8px; color: #e74c3c; font-size: 0.9rem;">
+            ⚠️ <?php echo htmlspecialchars($erro); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($sucesso): ?>
+        <div class="success-message">
+            ✓ <?php echo htmlspecialchars($sucesso); ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- FORMULÁRIO CLIENTE -->
+    <form action="processar_cadastro.php" method="POST" id="formCliente" class="form-auth">
+        <input type="hidden" name="tipo_usuario" value="CLIENTE">
         
         <div class="form-group">
-            <label for="nome_tech">Nome Completo *</label>
-            <input type="text" id="nome_tech" name="nome" placeholder="Digite seu nome completo" class="auth-input" required>
+            <label for="nome_cliente">Nome Completo *</label>
+            <input type="text" id="nome_cliente" name="nome_completo" placeholder="Digite seu nome completo" class="auth-input" required>
         </div>
 
         <div class="form-group">
-            <label for="email_tech">E-mail *</label>
-            <input type="email" id="email_tech" name="email" placeholder="seu.email@exemplo.com" class="auth-input" required>
+            <label for="cpf_cliente">CPF *</label>
+            <input type="text" id="cpf_cliente" name="cpf" placeholder="000.000.000-00" class="auth-input" required maxlength="14" inputmode="numeric">
         </div>
 
         <div class="form-group">
-            <label for="cpf_tech">CPF *</label>
-            <input type="text" id="cpf_tech" name="cpf" placeholder="000.000.000-00" class="auth-input" required maxlength="14">
+            <label for="data_nascimento">Data de Nascimento *</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" class="auth-input" required>
         </div>
 
         <div class="form-group">
-            <label for="telefone_tech">Telefone *</label>
-            <input type="tel" id="telefone_tech" name="telefone" placeholder="(11) 99999-9999" class="auth-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="especialidade_tech">Especialidade *</label>
-            <select id="especialidade_tech" name="especialidade" class="auth-input" required>
-                <option value="">Selecione sua especialidade</option>
-                <option value="eletricista">Eletricista</option>
-                <option value="encanador">Encanador</option>
-                <option value="mecanico">Mecânico</option>
-                <option value="carpinteiro">Carpinteiro</option>
-                <option value="pintor">Pintor</option>
-                <option value="vidraceiro">Vidraceiro</option>
-                <option value="eletronico">Eletrônico</option>
-                <option value="outro">Outro</option>
+            <label for="estado_civil">Estado Civil *</label>
+            <select id="estado_civil" name="estado_civil" class="auth-input" required>
+                <option value="">Selecione seu estado civil</option>
+                <option value="Solteiro(a)">Solteiro(a)</option>
+                <option value="Casado(a)">Casado(a)</option>
+                <option value="Divorciado(a)">Divorciado(a)</option>
+                <option value="Viúvo(a)">Viúvo(a)</option>
+                <option value="Separado(a)">Separado(a)</option>
+                <option value="União estável">União estável</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="experiencia_tech">Anos de Experiência *</label>
-            <input type="number" id="experiencia_tech" name="experiencia" placeholder="Ex: 5" class="auth-input" min="0" max="70" required>
+            <label for="endereco_cliente">Endereço Completo *</label>
+            <input type="text" id="endereco_cliente" name="endereco" placeholder="Rua, número, complemento, cidade, estado" class="auth-input" required>
         </div>
 
         <div class="form-group">
-            <label for="localizacao_tech">Cidade/Estado *</label>
-            <input type="text" id="localizacao_tech" name="localizacao" placeholder="São Paulo, SP" class="auth-input" required>
+            <label for="email_cliente">E-mail *</label>
+            <input type="email" id="email_cliente" name="email" placeholder="seu.email@exemplo.com" class="auth-input" required>
         </div>
 
         <div class="form-group">
-            <label for="senha_tech">Senha *</label>
-            <input type="password" id="senha_tech" name="senha" placeholder="Mínimo 8 caracteres" class="auth-input" required minlength="8">
+            <label for="senha_cliente">Senha *</label>
+            <input type="password" id="senha_cliente" name="senha" placeholder="Mínimo 8 caracteres" class="auth-input" required minlength="8">
         </div>
 
         <div class="form-group">
-            <label for="confirmar_senha_tech">Confirmar Senha *</label>
-            <input type="password" id="confirmar_senha_tech" name="confirmar_senha" placeholder="Confirme sua senha" class="auth-input" required minlength="8">
+            <label for="confirmar_senha_cliente">Confirmar Senha *</label>
+            <input type="password" id="confirmar_senha_cliente" name="confirmar_senha" placeholder="Confirme sua senha" class="auth-input" required minlength="8">
         </div>
 
         <div class="form-group checkbox">
-            <input type="checkbox" id="termos_tech" name="termos" required>
-            <label for="termos_tech" style="margin: 0; font-size: 0.85rem;">Concordo com os <a href="#" style="color: #8A05BE;">Termos de Serviço</a> e <a href="#" style="color: #8A05BE;">Política de Privacidade</a></label>
+            <input type="checkbox" id="termos_cliente" name="termos" required>
+            <label for="termos_cliente">Concordo com os <a href="#" target="_blank">Termos de Serviço</a> e <a href="#" target="_blank">Política de Privacidade</a></label>
         </div>
 
-        <button type="submit" class="btn-entrar">CRIAR CONTA COMO TÉCNICO</button>
+        <button type="submit" class="btn-entrar">CRIAR CONTA COMO CLIENTE</button>
     </form>
 
     <!-- FORMULÁRIO EMPRESA -->
-    <form action="processar_cadastro.php" method="POST" id="formCompany" class="form-auth" style="display:none;">
-        <input type="hidden" name="tipo" value="company">
+    <form action="processar_cadastro.php" method="POST" id="formEmpresa" class="form-auth" style="display:none;">
+        <input type="hidden" name="tipo_usuario" value="EMPRESA">
         
         <div class="form-group">
-            <label for="razao_social">Razão Social *</label>
-            <input type="text" id="razao_social" name="razao_social" placeholder="Nome da empresa" class="auth-input" required>
+            <label for="nome_empresa">Nome da Empresa *</label>
+            <input type="text" id="nome_empresa" name="nome_empresas" placeholder="Nome completo da empresa" class="auth-input" required>
         </div>
 
         <div class="form-group">
             <label for="cnpj">CNPJ *</label>
-            <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" class="auth-input" required maxlength="18">
+            <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" class="auth-input" required maxlength="18" inputmode="numeric">
+        </div>
+
+        <div class="form-group">
+            <label for="endereco_empresa">Endereço Comercial *</label>
+            <input type="text" id="endereco_empresa" name="endereco" placeholder="Rua, número, complemento, cidade, estado, CEP" class="auth-input" required>
         </div>
 
         <div class="form-group">
             <label for="email_empresa">E-mail Corporativo *</label>
             <input type="email" id="email_empresa" name="email" placeholder="contato@empresa.com" class="auth-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="telefone_empresa">Telefone *</label>
-            <input type="tel" id="telefone_empresa" name="telefone" placeholder="(11) 3333-3333" class="auth-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="nome_responsavel">Nome do Responsável *</label>
-            <input type="text" id="nome_responsavel" name="nome_responsavel" placeholder="Nome completo" class="auth-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="ramo_atividade">Ramo de Atividade *</label>
-            <input type="text" id="ramo_atividade" name="ramo_atividade" placeholder="Ex: Construção Civil" class="auth-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="endereco_empresa">Endereço Comercial *</label>
-            <input type="text" id="endereco_empresa" name="endereco" placeholder="Rua, número, complemento" class="auth-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="cidade_empresa">Cidade/Estado *</label>
-            <input type="text" id="cidade_empresa" name="cidade" placeholder="São Paulo, SP" class="auth-input" required>
-        </div>
-
-        <div class="form-group">
-            <label for="cep_empresa">CEP *</label>
-            <input type="text" id="cep_empresa" name="cep" placeholder="00000-000" class="auth-input" required maxlength="9">
         </div>
 
         <div class="form-group">
@@ -154,7 +139,7 @@ if (isset($_SESSION['user_id'])) {
 
         <div class="form-group checkbox">
             <input type="checkbox" id="termos_empresa" name="termos" required>
-            <label for="termos_empresa" style="margin: 0; font-size: 0.85rem;">Concordo com os <a href="#" style="color: #8A05BE;">Termos de Serviço</a> e <a href="#" style="color: #8A05BE;">Política de Privacidade</a></label>
+            <label for="termos_empresa">Concordo com os <a href="#" target="_blank">Termos de Serviço</a> e <a href="#" target="_blank">Política de Privacidade</a></label>
         </div>
 
         <button type="submit" class="btn-entrar">CRIAR CONTA COMO EMPRESA</button>
@@ -170,32 +155,32 @@ if (isset($_SESSION['user_id'])) {
     function toggleMode(mode) {
         const body = document.getElementById('mainBody');
         const welcome = document.getElementById('welcomeText');
-        const btnTech = document.getElementById('tabTech');
-        const btnComp = document.getElementById('tabComp');
-        const formTech = document.getElementById('formTech');
-        const formCompany = document.getElementById('formCompany');
+        const btnCliente = document.getElementById('tabCliente');
+        const btnEmpresa = document.getElementById('tabEmpresa');
+        const formCliente = document.getElementById('formCliente');
+        const formEmpresa = document.getElementById('formEmpresa');
 
-        if (mode === 'company') {
+        if (mode === 'empresa') {
             body.classList.add('mode-company');
-            welcome.innerText = "Cadastro de Empresa Contratante";
-            btnComp.classList.add('active');
-            btnTech.classList.remove('active');
-            formTech.style.display = 'none';
-            formCompany.style.display = 'block';
+            welcome.innerText = "Cadastro de Empresa";
+            btnEmpresa.classList.add('active');
+            btnCliente.classList.remove('active');
+            formCliente.style.display = 'none';
+            formEmpresa.style.display = 'flex';
         } else {
             body.classList.remove('mode-company');
-            welcome.innerText = "Cadastro de Técnico Especialista";
-            btnTech.classList.add('active');
-            btnComp.classList.remove('active');
-            formTech.style.display = 'block';
-            formCompany.style.display = 'none';
+            welcome.innerText = "Cadastro de Cliente";
+            btnCliente.classList.add('active');
+            btnEmpresa.classList.remove('active');
+            formCliente.style.display = 'flex';
+            formEmpresa.style.display = 'none';
         }
     }
 
-    // Validação de senhas
-    document.getElementById('formTech').addEventListener('submit', function(e) {
-        const senha = document.getElementById('senha_tech').value;
-        const confirmar = document.getElementById('confirmar_senha_tech').value;
+    // Validação de senhas - Cliente
+    document.getElementById('formCliente').addEventListener('submit', function(e) {
+        const senha = document.getElementById('senha_cliente').value;
+        const confirmar = document.getElementById('confirmar_senha_cliente').value;
         
         if (senha !== confirmar) {
             e.preventDefault();
@@ -203,7 +188,8 @@ if (isset($_SESSION['user_id'])) {
         }
     });
 
-    document.getElementById('formCompany').addEventListener('submit', function(e) {
+    // Validação de senhas - Empresa
+    document.getElementById('formEmpresa').addEventListener('submit', function(e) {
         const senha = document.getElementById('senha_empresa').value;
         const confirmar = document.getElementById('confirmar_senha_empresa').value;
         
@@ -214,28 +200,12 @@ if (isset($_SESSION['user_id'])) {
     });
 
     // Máscaras de entrada
-    document.getElementById('cpf_tech').addEventListener('input', function(e) {
+    document.getElementById('cpf_cliente').addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
         if (value.length > 11) value = value.slice(0, 11);
         value = value.replace(/(\d{3})(\d)/, '$1.$2');
         value = value.replace(/(\d{3})(\d)/, '$1.$2');
         value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-        e.target.value = value;
-    });
-
-    document.getElementById('telefone_tech').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 11) value = value.slice(0, 11);
-        value = value.replace(/(\d{2})(\d)/, '($1) $2');
-        value = value.replace(/(\d{4})(\d)/, '$1-$2');
-        e.target.value = value;
-    });
-
-    document.getElementById('telefone_empresa').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 10) value = value.slice(0, 10);
-        value = value.replace(/(\d{2})(\d)/, '($1) $2');
-        value = value.replace(/(\d{4})(\d)/, '$1-$2');
         e.target.value = value;
     });
 
@@ -246,13 +216,6 @@ if (isset($_SESSION['user_id'])) {
         value = value.replace(/(\d{3})(\d)/, '$1.$2');
         value = value.replace(/(\d{3})(\d)/, '$1/$2');
         value = value.replace(/(\d{4})(\d)/, '$1-$2');
-        e.target.value = value;
-    });
-
-    document.getElementById('cep_empresa').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 8) value = value.slice(0, 8);
-        value = value.replace(/(\d{5})(\d)/, '$1-$2');
         e.target.value = value;
     });
 </script>
