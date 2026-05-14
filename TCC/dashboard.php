@@ -36,7 +36,7 @@ $scoreUsuario = isset($_SESSION['user_score']) ? $_SESSION['user_score'] : 0;
             </div>
 
         <?php elseif ($page == 'academy'): ?>
-            <h1>Central de Falhas (Troubleshooting)</h1>
+            <h1>Central de Falhas</h1>
             <p>Consulte códigos de erro de máquinas em tempo real.</p>
             <div id="academy-list" style="margin-top: 20px;">
                 <div class="card" style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 10px;">

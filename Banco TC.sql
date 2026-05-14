@@ -4,7 +4,7 @@ USE TC;
 CREATE TABLE Usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL, -- Onde você salvará o hash da senha
+    senha VARCHAR(255) NOT NULL, 
     tipo_usuario ENUM('CLIENTE', 'EMPRESA') NOT NULL,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

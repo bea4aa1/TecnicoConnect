@@ -13,9 +13,9 @@
     <div class="nav-links">
         <a href="sobre.php">Sobre</a>
         <a href="vagas.php">Vagas</a>
-        <a href="guia-curriculo.php">Currículo</a>
-        <a href="quiz.php" class="btn-roxo btn-padding-quiz">Fazer Quiz</a>
+        <a href="guiacurriculo.php">Currículo</a>
         <a href="login.php" class="btn-logcad-nav">Entrar</a>
         <a href="cadastro.php" class="btn-logcad-nav">Cadastrar</a>
+        <a href="plataforma/index.html" class="btn-plataforma-nav"> Acessar a Plataforma</a>
     </div>
 </nav>

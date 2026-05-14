@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('quiz-content').style.display = "none";
                 document.getElementById('result-container').style.display = "block";
                 document.getElementById('result-text').innerText = `Acertos: ${score} de ${quizData.length}`;
-                localStorage.setItem('temp_score', score); // Salva temporário antes do login
+                localStorage.setItem('temp_score', score); 
                 return;
             }
             qText.innerText = quizData[currentQ].q;

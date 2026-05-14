@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Validações básicas
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: cadastro.php");
     exit();
@@ -13,7 +13,6 @@ require_once 'includes/conexao.php';
 $tipo_usuario = $_POST['tipo_usuario'] ?? null;
 $erros = [];
 
-// ========== VALIDAÇÕES GERAIS ==========
 
 if (empty($_POST['email'])) {
     $erros[] = "E-mail é obrigatório";
@@ -35,7 +34,7 @@ if (empty($_POST['termos'])) {
     $erros[] = "Você deve aceitar os Termos de Serviço";
 }
 
-// ========== VALIDAÇÕES ESPECÍFICAS PARA CLIENTE ==========
+//cliente
 if ($tipo_usuario === 'CLIENTE') {
     if (empty($_POST['nome_completo'])) {
         $erros[] = "Nome completo é obrigatório";
@@ -69,7 +68,9 @@ if ($tipo_usuario === 'CLIENTE') {
         $erros[] = "Endereço é obrigatório";
     }
 }
-// ========== VALIDAÇÕES ESPECÍFICAS PARA EMPRESA ==========
+
+
+//empresa
 elseif ($tipo_usuario === 'EMPRESA') {
     if (empty($_POST['nome_empresas'])) {
         $erros[] = "Nome da empresa é obrigatório";
@@ -93,7 +94,6 @@ elseif ($tipo_usuario === 'EMPRESA') {
     $erros[] = "Tipo de usuário inválido";
 }
 
-// Se houver erros, redirecionar com mensagem
 if (!empty($erros)) {
     $_SESSION['erro'] = implode(' | ', $erros);
     header("Location: cadastro.php");

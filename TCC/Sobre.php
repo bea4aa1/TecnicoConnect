@@ -15,12 +15,12 @@
     <div class="container-samsung">
         <div class="samsung-grid">
             <div class="samsung-card reveal">
-                <div class="icon">🚀</div>
+                <div class="icon"></div>
                 <h3>Nossa Visão</h3>
                 <p>Ser a plataforma número 1 em recrutamento técnico especializado na América Latina, unindo eficiência e tecnologia.</p>
             </div>
             <div class="samsung-card reveal">
-                <div class="icon">🤝</div>
+                <div class="icon"></div>
                 <h3>Nosso Valor</h3>
                 <p>Valorizamos a precisão técnica e a jornada do profissional, garantindo que cada "match" seja duradouro.</p>
             </div>

@@ -3,15 +3,15 @@
     
     <nav id="dynamic-menu">
         <a href="?page=home" class="nav-item <?php echo ($page == 'home') ? 'active' : ''; ?>">
-            <span>🏠</span> Painel Principal
+            Painel Principal
         </a>
         
         <a href="?page=vagas" class="nav-item <?php echo ($page == 'vagas') ? 'active' : ''; ?>">
-            <span>💼</span> Minhas Vagas
+          Minhas Vagas
         </a>
         
         <a href="?page=academy" class="nav-item <?php echo ($page == 'academy') ? 'active' : ''; ?>">
-            <span>🛠️</span> Central de Falhas
+             Central de Falhas
         </a>
     </nav>
     
@@ -31,11 +31,11 @@
         </p>
 
         <p style="font-size: 0.65rem; opacity: 0.6; margin-bottom: 15px;">
-            <?php echo (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'tech') ? '⚙️ TÉCNICO' : '🏢 EMPRESA'; ?>
+            <?php echo (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'tech') ? ' TÉCNICO' : ' EMPRESA'; ?>
         </p>
         
         <button onclick="location.href='logout.php'" style="color: #e74c3c; border:none; background:none; font-weight:800; cursor:pointer; font-size: 0.8rem; padding: 0; display: flex; align-items: center; gap: 5px;">
-            <span>🚪</span> SAIR DO SISTEMA
+             Sair do Sistema
         </button>
     </div>
 </aside>

@@ -11,6 +11,7 @@
         <div class="hero-buttons">
             <a href="quiz.php" class="btn-roxo">Começar Desafio</a>
             <a href="sobre.php" class="btn-outline">Saiba Mais</a>
+
         </div>
     </div>
 </header>

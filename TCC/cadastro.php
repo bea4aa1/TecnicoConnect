@@ -5,7 +5,7 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Exibir mensagens de sessão
+
 $erro = $_SESSION['erro'] ?? null;
 $sucesso = $_SESSION['sucesso'] ?? null;
 unset($_SESSION['erro'], $_SESSION['sucesso']);
@@ -33,7 +33,7 @@ unset($_SESSION['erro'], $_SESSION['sucesso']);
 
     <?php if ($erro): ?>
         <div class="error-message" style="margin-bottom: 20px; padding: 12px; background: #fde6e6; border-left: 4px solid #e74c3c; border-radius: 8px; color: #e74c3c; font-size: 0.9rem;">
-            ⚠️ <?php echo htmlspecialchars($erro); ?>
+             <?php echo htmlspecialchars($erro); ?>
         </div>
     <?php endif; ?>
 
@@ -43,7 +43,8 @@ unset($_SESSION['erro'], $_SESSION['sucesso']);
         </div>
     <?php endif; ?>
 
-    <!-- FORMULÁRIO CLIENTE -->
+
+
     <form action="processar_cadastro.php" method="POST" id="formCliente" class="form-auth">
         <input type="hidden" name="tipo_usuario" value="CLIENTE">
         
@@ -103,7 +104,9 @@ unset($_SESSION['erro'], $_SESSION['sucesso']);
         <button type="submit" class="btn-entrar">CRIAR CONTA COMO CLIENTE</button>
     </form>
 
-    <!-- FORMULÁRIO EMPRESA -->
+
+
+
     <form action="processar_cadastro.php" method="POST" id="formEmpresa" class="form-auth" style="display:none;">
         <input type="hidden" name="tipo_usuario" value="EMPRESA">
         
@@ -150,6 +153,9 @@ unset($_SESSION['erro'], $_SESSION['sucesso']);
         <a href="index.php" style="color:#8A05BE; text-decoration:none; font-size:0.8rem; font-weight:600;">← Voltar ao Início</a>
     </div>
 </div>
+
+
+
 
 <script>
     function toggleMode(mode) {
@@ -199,7 +205,6 @@ unset($_SESSION['erro'], $_SESSION['sucesso']);
         }
     });
 
-    // Máscaras de entrada
     document.getElementById('cpf_cliente').addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
         if (value.length > 11) value = value.slice(0, 11);
